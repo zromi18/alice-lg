@@ -1,0 +1,67 @@
+@-webkit-keyframes fadeSmooth {
+  from {
+    opacity: 0;
+    left: -60px; }
+  to {
+    opacity: 1;
+    left: -87px; } }
+
+@keyframes fadeSmooth {
+  from {
+    opacity: 0;
+    left: -60px; }
+  to {
+    opacity: 1;
+    left: -87px; } }
+
+.table-routes td {
+  color: #337ab7;
+  text-decoration: none; }
+  .table-routes td span:hover {
+    text-decoration: underline; }
+  .table-routes td span {
+    cursor: pointer; }
+
+.table-routes .noexport-reason,
+.table-routes .reject-reason {
+  font-size: 90%;
+  color: #333;
+  margin-bottom: 1px; }
+
+.table-routes .primary-route {
+  position: relative;
+  color: #555;
+  width: 1.5ex;
+  display: inline-block;
+  text-decoration: none;
+  border: none; }
+  .table-routes .primary-route div {
+    display: none;
+    top: -5px;
+    left: -87px;
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+    position: absolute;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    -webkit-animation-name: fadeSmooth;
+    animation-name: fadeSmooth; }
+  .table-routes .primary-route:hover div {
+    display: block;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+.table-routes .route-network {
+  display: inline-block;
+  white-space: nowrap; }
+
+.table-protocols {
+  background: white; }
+  .table-protocols .date-since {
+    white-space: nowrap; }
+
+.routes-loading.card p {
+  font-family: monospace; }

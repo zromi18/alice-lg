@@ -1,0 +1,321 @@
+@import url(font-awesome/css/font-awesome.css);
+/**
+ * Main Layout Scss File 
+ */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+body, html {
+  font-family: "Source Sans Pro";
+  margin: 0px;
+  padding: 0px; }
+
+body,
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row; }
+
+#app {
+  width: 100%; }
+
+.page header {
+  margin-top: 50px; }
+
+.page-body {
+  display: flex;
+  flex: 1; }
+
+.page-content {
+  flex: 1 0;
+  background: #f4f5f7;
+  background-image: url("../img/alicebg.png");
+  background-position: 90% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 0px;
+  margin: 0px; }
+
+.page-nav {
+  flex: 0 0 250px;
+  order: -1;
+  background: #f8f8f8; }
+
+.page-sidebar {
+  flex: 0 0 220px;
+  background: #272634; }
+
+header, footer {
+  flex: none; }
+
+.navbar {
+  box-shadow: none;
+  border-bottom: none; }
+
+.page-header {
+  line-height: 59px;
+  background: white;
+  margin: 0px;
+  height: 59px;
+  box-shadow: 0px 1px 4px #eee; }
+
+.table-protocols .protocol-state-error {
+  display: block;
+  font-size: 11px;
+  color: orange; }
+
+.loading-indicator {
+  text-align: center;
+  width: 50px;
+  margin: 0px auto; }
+
+.details-main {
+  margin-right: 0px;
+  margin-top: 20px; }
+  .details-main .help-block {
+    margin: 20px;
+    padding: 10px 5px; }
+
+.welcome-page .jumbotron {
+  padding: 20px; }
+
+/*
+ * HEADER
+ */
+.page-sidebar {
+  color: #f0f0f0; }
+  .page-sidebar h2 {
+    color: #b0b0b0;
+    margin-top: 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding-left: 15px; }
+  .page-sidebar .sidebar-header {
+    color: #f0f0f0;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    background: #222; }
+    .page-sidebar .sidebar-header .logo {
+      flex: 0 0 45px;
+      padding: 10px 8px; }
+      .page-sidebar .sidebar-header .logo i {
+        font-size: 28px; }
+    .page-sidebar .sidebar-header .title {
+      flex: 1; }
+      .page-sidebar .sidebar-header .title h1 {
+        margin: 7px 0px 0px 0px;
+        padding: 3px 0px;
+        font-size: 13px;
+        color: #f0f0f0; }
+      .page-sidebar .sidebar-header .title p {
+        font-size: 10px;
+        color: #f0f0f0; }
+  .page-sidebar .routeservers-list {
+    margin-top: 40px; }
+    .page-sidebar .routeservers-list ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px; }
+    .page-sidebar .routeservers-list li {
+      padding: 8px;
+      padding-left: 15px;
+      cursor: pointer; }
+    .page-sidebar .routeservers-list .routeserver-id {
+      font-size: 13px;
+      display: block; }
+    .page-sidebar .routeservers-list .routeserver-status .bird-version {
+      font-size: 10px;
+      color: #888888; }
+
+.page-header {
+  padding: 0px 20px; }
+  .page-header .status-name {
+    font-weight: bold; }
+  .page-header .status-protocol {
+    font-weight: bold; }
+  .page-header .spacer {
+    font-weight: bold;
+    padding: 0px 8px; }
+
+.routeserver-status {
+  margin: 0px;
+  padding: 0px; }
+  .routeserver-status td {
+    vertical-align: top;
+    padding: 4px; }
+    .routeserver-status td i {
+      width: 15px; }
+
+.card {
+  background: white;
+  margin: 0px 0px 20px 20px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px #cccccc;
+  padding: 20px; }
+
+/**
+ * Show Modal
+ */
+.modal-show {
+  display: block; }
+  .modal-show .modal-content {
+    border-radius: 3px; }
+
+.bgp-attributes-modal .modal-header p {
+  margin: 0px;
+  font-size: 10px; }
+
+.bgp-attributes-modal .modal-header h4 {
+  font-size: 14px;
+  margin: 0px; }
+
+.bgp-attributes-modal table th {
+  width: 142px; }
+
+.table-nolines td, .table-nolines th {
+  border: none !important; }
+
+@-webkit-keyframes fadeSmooth {
+  from {
+    opacity: 0;
+    left: -60px; }
+  to {
+    opacity: 1;
+    left: -87px; } }
+
+@keyframes fadeSmooth {
+  from {
+    opacity: 0;
+    left: -60px; }
+  to {
+    opacity: 1;
+    left: -87px; } }
+
+.table-routes td {
+  color: #337ab7;
+  text-decoration: none; }
+  .table-routes td span:hover {
+    text-decoration: underline; }
+  .table-routes td span {
+    cursor: pointer; }
+
+.table-routes .noexport-reason,
+.table-routes .reject-reason {
+  font-size: 90%;
+  color: #333;
+  margin-bottom: 1px; }
+
+.table-routes .primary-route {
+  position: relative;
+  color: #555;
+  width: 1.5ex;
+  display: inline-block;
+  text-decoration: none;
+  border: none; }
+  .table-routes .primary-route div {
+    display: none;
+    top: -5px;
+    left: -87px;
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+    position: absolute;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    -webkit-animation-name: fadeSmooth;
+    animation-name: fadeSmooth; }
+  .table-routes .primary-route:hover div {
+    display: block;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+
+.table-routes .route-network {
+  display: inline-block;
+  white-space: nowrap; }
+
+.table-protocols {
+  background: white; }
+  .table-protocols .date-since {
+    white-space: nowrap; }
+
+.routes-loading.card p {
+  font-family: monospace; }
+
+.error-notify {
+  min-width: 250px;
+  margin-left: -125px;
+  border-bottom: 7px solid #7c0002;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  display: table;
+  z-index: 2;
+  right: 30px;
+  top: 20px; }
+  .error-notify .error-icon {
+    display: table-cell;
+    width: 60px;
+    padding: 10px 10px 0 10px;
+    text-align: center;
+    vertical-align: top; }
+    .error-notify .error-icon > i {
+      font-size: 2em;
+      border-radius: 100%; }
+  .error-notify .error-message {
+    display: table-cell; }
+    .error-notify .error-message > p {
+      line-height: 1.2;
+      margin-top: 6px; }
+
+.lookup-result-summary ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px; }
+
+.lookup-result-summary li {
+  padding: 8px;
+  padding-left: 15px; }
+
+.lookup-help {
+  margin: 30px 20px; }
+  .lookup-help h3 {
+    font-weight: bold;
+    color: #337ab7;
+    margin-top: 15px;
+    font-size: 14px;
+    text-transform: uppercase; }
+
+/*
+ Pagination is handled pretty well by bootstrap.
+ We add some minor extensions, like a breakable paginator.
+*/
+.pagination li.break a {
+  border: none;
+  border-left: 1px solid #ddd; }
+  .pagination li.break a:hover {
+    background: none; }
+
+.pagination .pagination-select {
+  width: auto;
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+.pagination li.active .pagination-select {
+  background-color: #337ab7;
+  color: #fff; }
