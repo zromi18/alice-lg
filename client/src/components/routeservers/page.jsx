@@ -41,10 +41,12 @@ class RouteserversPage extends React.Component {
 
 
   render() {
+    const rsId = this.props.match.params.routeserverId;
+
     return(
       <div className="routeservers-page">
         <PageHeader>
-          <Details routeserverId={this.props.params.routeserverId} />
+          <Details routeserverId={rsId} />
         </PageHeader>
 
         <div className="row details-main">
@@ -57,11 +59,11 @@ class RouteserversPage extends React.Component {
               />
             </div>
 
-            <Protocols protocol="bgp" routeserverId={this.props.params.routeserverId} />
+            <Protocols protocol="bgp" routeserverId={rsId} />
           </div>
           <div className="col-lg-3 col-md-4 col-xs-12">
             <div className="card">
-              <Status routeserverId={this.props.params.routeserverId} />
+              <Status routeserverId={rsId} />
             </div>
           </div>
         </div>

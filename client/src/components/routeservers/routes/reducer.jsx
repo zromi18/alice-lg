@@ -66,7 +66,7 @@ function _stateType(type) {
 // Handlers:
 function _handleLocationChange(state, payload) {
   // Check query payload
-  let query = payload.query;
+  let query = payload.query || {};
 
   let filterQuery = query["q"] || "";
 
