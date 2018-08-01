@@ -54,7 +54,7 @@ const browserHistory = createBrowserHistory({
 
 // Create router middleware
 // eslint-disable-next-line
-const appRouterMiddleware = routerMiddleware();
+const appRouterMiddleware = routerMiddleware(browserHistory);
 
 
 // Setup application
@@ -63,8 +63,8 @@ const store = createStore(
   connectRouter(browserHistory)(combinedReducer),
   compose(
       applyMiddleware(
-        loggerMiddleware,
         appRouterMiddleware,
+        loggerMiddleware,
         thunkMiddleware,
       )
   )

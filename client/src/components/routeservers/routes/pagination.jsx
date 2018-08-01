@@ -3,8 +3,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
-import {push} from 'react-router-redux'
+import {push} from 'connected-react-router'
 
+import {parseQueryString} from 'utils/uri'
 
 const makeLinkProps = function(props) {
   const linkPage = parseInt(props.page, 10);
@@ -27,9 +28,10 @@ const makeLinkProps = function(props) {
     default:
   }
 
-  const query = props.routing.query.q || "";
+  const query = parseQueryString(props.routing.search);
+  const q = query.q || "";
 
-  const search = `?pr=${pr}&pf=${pf}&pn=${pn}&q=${query}`;
+  const search = `?pr=${pr}&pf=${pf}&pn=${pn}&q=${q}`;
   const hash   = `#${props.anchor}`;
   const linkTo = {
     pathname: props.routing.pathname,
@@ -194,7 +196,7 @@ export const RoutesPaginator = connect(
       pageFiltered:    state.routes.filteredPage,
       pageNotExported: state.routes.notExportedPage,
 
-      routing: state.routing.locationBeforeTransitions
+      routing: state.router.location
   })
 )(RoutesPaginatorView);
 

@@ -5,7 +5,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
-import {push} from 'react-router-redux'
+import {push} from 'connected-react-router'
 
 import Details    from '../details'
 import Status     from '../status'
@@ -198,7 +198,7 @@ export default connect(
           [ROUTES_FILTERED]:     filtered,
           [ROUTES_NOT_EXPORTED]: notExported
       },
-      routing: state.routing.locationBeforeTransitions,
+      routing: state.router.location,
       anyLoading: anyLoading
     });
   }
