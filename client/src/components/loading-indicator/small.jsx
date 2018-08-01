@@ -10,7 +10,7 @@ export default class Indicator extends React.Component {
 
 		return (
 			<div className="loading-indicator">
-       	<Spinner spinnerName="circle" />
+       	<Spinner spinnername="circle" />
 			</div>
 		);
 	}
