@@ -7,4 +7,5 @@
 * Check react-spinkit // Fix loading indicators
 * Fix scrolling with pagination link navigation ("anchors!")
 * Fix global lookup page
+* Dockerize this.
 
