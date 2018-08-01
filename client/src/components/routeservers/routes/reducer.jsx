@@ -17,6 +17,9 @@ import {ROUTES_RECEIVED,
 
 import {SET_FILTER_QUERY_VALUE} from './actions'
 
+import {parseQueryString} from 'utils/uri'
+
+
 const LOCATION_CHANGE = '@@router/LOCATION_CHANGE'
 
 const initialState = {
@@ -65,8 +68,7 @@ function _stateType(type) {
 
 // Handlers:
 function _handleLocationChange(state, payload) {
-  // Check query payload
-  let query = payload.query;
+  const query = parseQueryString(payload.location.search);
 
   let filterQuery = query["q"] || "";
 

@@ -87,10 +87,13 @@ class RoutesView extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.routesNeedFetch(prevProps)) {
       this.dispatchFetchRoutes();
+      /*
+      TODO: Make ref!!
       this.refs.scrollAnchor.scrollIntoView({
         behaviour: "smooth",
         block: "start",
       });
+      */
     }
   }
 

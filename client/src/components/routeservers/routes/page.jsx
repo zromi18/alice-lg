@@ -5,7 +5,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {Link} from 'react-router-dom'
-import {push} from 'react-router-redux'
+import {push} from 'connected-react-router'
 
 import Details    from '../details'
 import Status     from '../status'
@@ -101,13 +101,15 @@ class RoutesPage extends React.Component {
   }
 
   componentDidMount() {
+    const rsId = parseInt(this.props.match.params.routeserverId, 10);
     // Assert neighbors for RS are loaded
-    this.props.dispatch(
-      loadRouteserverProtocol(parseInt(this.props.params.routeserverId, 10))
-    );
+    this.props.dispatch(loadRouteserverProtocol(rsId));
   }
 
   render() {
+    const rsId = this.props.match.params.routeserverId;
+    const protocolId = this.props.match.params.protocolId;
+
     let cacheStatus = apiCacheStatus(this.props.routes.received.apiStatus);
     if (this.props.anyLoading) {
       cacheStatus = null;
@@ -116,12 +118,12 @@ class RoutesPage extends React.Component {
     return(
       <div className="routeservers-page">
         <PageHeader>
-          <Link to={`/routeservers/${this.props.params.routeserverId}`}>
-            <Details routeserverId={this.props.params.routeserverId} />
+          <Link to={`/routeservers/${rsId}`}>
+            <Details routeserverId={rsId} />
           </Link>
           <span className="spacer">&raquo;</span>
-          <ProtocolName routeserverId={this.props.params.routeserverId}
-                        protocolId={this.props.params.protocolId} />
+          <ProtocolName routeserverId={rsId}
+                        protocolId={protocolId} />
         </PageHeader>
 
         <BgpAttributesModal />
@@ -140,26 +142,25 @@ class RoutesPage extends React.Component {
 
             <RoutesView
                 type={ROUTES_FILTERED}
-                routeserverId={this.props.params.routeserverId}
-                protocolId={this.props.params.protocolId} />
+                routeserverId={rsId}
+                protocolId={protocolId} />
 
             <RoutesView
                 type={ROUTES_RECEIVED}
-                routeserverId={this.props.params.routeserverId}
-                protocolId={this.props.params.protocolId} />
+                routeserverId={rsId}
+                protocolId={protocolId} />
 
             <RoutesView
                 type={ROUTES_NOT_EXPORTED}
-                routeserverId={this.props.params.routeserverId}
-                protocolId={this.props.params.protocolId} />
+                routeserverId={rsId}
+                protocolId={protocolId} />
 
             <RoutesLoadingIndicator />
 
           </div>
           <div className="col-md-4">
             <div className="card">
-              <Status routeserverId={this.props.params.routeserverId}
-                      cacheStatus={cacheStatus} />
+              <Status routeserverId={rsId} cacheStatus={cacheStatus} />
             </div>
           </div>
         </div>
@@ -197,7 +198,7 @@ export default connect(
           [ROUTES_FILTERED]:     filtered,
           [ROUTES_NOT_EXPORTED]: notExported
       },
-      routing: state.routing.locationBeforeTransitions,
+      routing: state.router.location,
       anyLoading: anyLoading
     });
   }

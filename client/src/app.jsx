@@ -28,7 +28,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import { ConnectedRouter, connectRouter, routerMiddleware } from 'connected-react-router'
 
-import { syncHistoryWithStore } from 'react-router-redux'
+// import { syncHistoryWithStore } from 'react-router-redux'
 
 
 // Components
@@ -54,7 +54,7 @@ const browserHistory = createBrowserHistory({
 
 // Create router middleware
 // eslint-disable-next-line
-const appRouterMiddleware = routerMiddleware();
+const appRouterMiddleware = routerMiddleware(browserHistory);
 
 
 // Setup application
@@ -63,8 +63,8 @@ const store = createStore(
   connectRouter(browserHistory)(combinedReducer),
   compose(
       applyMiddleware(
-        loggerMiddleware,
         appRouterMiddleware,
+        loggerMiddleware,
         thunkMiddleware,
       )
   )
@@ -78,10 +78,6 @@ window.Alice = {
   }
 };
 
-let history = syncHistoryWithStore(browserHistory, store);
-
-history = browserHistory;
-
 // Setup axios
 configureAxios(axios);
 
@@ -90,7 +86,7 @@ export default class AliceApp extends Component {
   render() {
     return (
       <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <ConnectedRouter history={browserHistory}>
           <LayoutMain />
         </ConnectedRouter>
       </Provider>

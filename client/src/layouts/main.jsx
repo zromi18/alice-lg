@@ -25,11 +25,11 @@ export default class LayoutMain extends React.Component {
         <div className="page-body">
           <main className="page-content">
            <Switch>
-             <Route exact path="/" component={WelcomePage}/>
-             <Route path="/routeservers">
-                <Route path=":routeserverId" component={RouteserverPage} />
-                <Route path=":routeserverId/protocols/:protocolId/routes" component={RoutesPage} />
-             </Route>
+             <Route exact path="/" component={WelcomePage} />
+             <Route path="/routeservers/:routeserverId/protocols/:protocolId/routes"
+                    component={RoutesPage} />
+             <Route path="/routeservers/:routeserverId"
+                    component={RouteserverPage} />
            </Switch>
           </main>
         </div>

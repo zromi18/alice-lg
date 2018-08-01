@@ -7,7 +7,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import{ push } from 'react-router-redux'
+import{ Link } from 'react-router-dom'
 
 import { loadRouteservers } from 'components/routeservers/actions'
 
@@ -23,17 +23,13 @@ class RouteserversList extends React.Component {
     );
   }
 
-  showRouteserver(id) {
-    this.props.dispatch(
-      push(`/routeservers/${id}`)
-    );
-  }
-
   render() {
     let routeservers = this.props.routeservers.map((rs) =>
-      <li key={rs.id} onClick={() => this.showRouteserver(rs.id)}>
+      <li key={rs.id}>
+       <Link to={`/routeservers/${rs.id}`}>
         <span className="routeserver-id">{rs.name}</span>
         <Status routeserverId={rs.id} />
+       </Link>
       </li>
     );
 

@@ -18,14 +18,14 @@ deps: image
 
 client: stop deps
 	@echo "Building alice UI"
-	$(DOCKER_EXEC) "./node_modules/.bin/gulp"
+	$(DOCKER_EXEC) "npm build"
 
 client_prod: stop deps
 	@echo "Building alice UI (production)"
-	$(DOCKER_EXEC) "DISABLE_LOGGING=1 NODE_ENV=production ./node_modules/.bin/gulp"
+	$(DOCKER_EXEC) "NODE_ENV=production npm build"
 
-watch:
-	$(DOCKER_EXEC) "while true; do ./node_modules/.bin/gulp watch; done"
+# watch:
+#	$(DOCKER_EXEC) "while true; do ./node_modules/.bin/gulp watch; done"
 
 stop:
 	@echo "Stopping docker container: $(DOCKER_CONTAINER)"
